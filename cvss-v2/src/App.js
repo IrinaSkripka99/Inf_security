@@ -8,7 +8,7 @@ const { Header, Footer } = Layout;
 
 export default function App() {
     return (
-        <Layout className="layout" style={{ height: '-webkit-fill-available' }}>
+        <Layout className="layout" >
             <Header>
                 <Menu
                     theme="dark"
@@ -17,7 +17,7 @@ export default function App() {
                 >
                 </Menu>
             </Header>
-            <Content/>
+            <Content />
             <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
     );
