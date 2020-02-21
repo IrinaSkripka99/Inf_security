@@ -127,9 +127,9 @@ class BaseMetricsV3 extends React.Component {
         const s_base_values = [0, 1]
         const c_i_a_base_values = [0.0, 0.22, 0.56]
 
-        const av_base_metrics = ['Физический (P)', 'Локальный (L)', 'Смежная сеть (A)', 'Сетевой (N)']
-        const ac_base_metrics = ['Высокая (H)', 'Низкая (L)']
-        const pr_base_metrics = ['Высокий (H)', 'Низкий (L)', 'Не требуется (N)']
+        const av_base_metrics = ['Сетевой (N)', 'Смежная сеть (A)', 'Локальный (L)', 'Физический (P)']
+        const ac_base_metrics = ['Низкая (L)', 'Высокая (H)']
+        const pr_base_metrics = ['Не требуется (N)', 'Низкий (L)', 'Высокий (H)',]
         const ui_base_metrics = ['Не требуется (N)', 'Требуется (R)']
         const s_base_metrics = ['Не оказывает (U)', 'Оказывает (C)']
         const c_i_a_base_metrics = ['Не оказывает (N)', 'Низкое (L)', 'Высокое (H)']
