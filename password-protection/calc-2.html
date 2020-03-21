@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор паролей</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        .wrapper {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f9fbfd;
+        }
+
+        .wrapper {
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            padding-top: 0px;
+            color: hsl(206, 17%, 28%);
+        }
+
+        .card {
+            background-color: hsl(0, 0%, 100%);
+            border-radius: 5px;
+            border-width: 1px;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+            color: hsl(206, 17%, 28%);
+            font-size: 18px;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 30px 40px;
+        }
+
+        .card-header::after {
+            content: " ";
+            display: block;
+            width: 100%;
+            background: #e7e9eb;
+            height: 2px;
+        }
+
+        .card-body {
+            min-height: 100px;
+        }
+
+        .card-footer {
+            text-align: center;
+        }
+
+        .card-footer::before {
+            content: " ";
+            display: block;
+            width: 100%;
+            background: #e7e9eb;
+            height: 2px;
+        }
+
+        .card-footer::after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .btn {
+            border: none;
+            background-color: hsl(360, 91%, 36%);
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+            color: hsl(0, 0%, 100%);
+            display: inline-block;
+            font-size: 22px;
+            line-height: 22px;
+            margin: 16px 16px 16px 20px;
+            padding: 14px 34px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        button[disabled] {
+            cursor: default;
+            background: #c0c7cf;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        #password {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+            display: block;
+            width: 100%;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 85px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 2px dashed #c0c7cf;
+            border-radius: 6px;
+            resize: none;
+            overflow: hidden;
+        }
+
+        @media (max-width: 290px) {
+            .btn {
+                font-size: 1rem;
+                margin: 16px 0px 0px 0px;
+                padding: 10px 15px;
+            }
+
+            #password {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 00px) {
+            .btn {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Password Generator</h1>
+        </header>
+        <div class="card">
+            <div class="card-header">
+                <h2>Generate a Password</h2>
+            </div>
+            <div>
+                <br>
+                <br>
+                <div>
+                    <label for="P">P:</label>
+                    <p name="P" id='P'>0,00001</p>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="V">V:</label>
+                    <p name="V" id='V' >20 паролей в минуту</p>                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="T">T:</label>
+                    <p name="T" id='T' >6 дней</p>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <div class="card-body">
+                        <textarea readonly id="password" placeholder="Your Secure Password"
+                            aria-label="Generated Password"></textarea>
+                    </div>
+                    <div class="card-footer">
+                        <button id="generate" class="btn">Generate Password</button>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
+<script>
+    let p, v, t, l, s;
+
+    let generateBtn = document.querySelector("#generate");
+    generateBtn.addEventListener("click", generatePassword);
+
+    let randomPassword = ""
+    var upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    var lowerCase = "абвгдеёжзиклмнопрстуфхцчшщъыьэюя";
+
+    let a = upperCase.length + lowerCase.length;
+
+    let characters = upperCase + lowerCase;
+
+    s = v * t / p;
+    l = 0;
+
+    while (Math.pow(a, l) < s) {
+        l++;
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function generatePassword() {
+        l = getRandomInt(l, 59)
+        for (let i = 0; i < l; i++) {
+            randomPassword = randomPassword + characters[Math.floor(Math.random() * characters.length)];
+        }
+        document.getElementById('password').value = randomPassword;
+    }
+</script>

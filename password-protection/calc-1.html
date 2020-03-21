@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор паролей</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        .wrapper {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f9fbfd;
+        }
+
+        .wrapper {
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            padding-top: 0px;
+            color: hsl(206, 17%, 28%);
+        }
+
+        .card {
+            background-color: hsl(0, 0%, 100%);
+            border-radius: 5px;
+            border-width: 1px;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+            color: hsl(206, 17%, 28%);
+            font-size: 18px;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 30px 40px;
+        }
+
+        .card-header::after {
+            content: " ";
+            display: block;
+            width: 100%;
+            background: #e7e9eb;
+            height: 2px;
+        }
+
+        .card-body {
+            min-height: 100px;
+        }
+
+        .card-footer {
+            text-align: center;
+        }
+
+        .card-footer::before {
+            content: " ";
+            display: block;
+            width: 100%;
+            background: #e7e9eb;
+            height: 2px;
+        }
+
+        .card-footer::after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .btn {
+            border: none;
+            background-color: hsl(360, 91%, 36%);
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+            color: hsl(0, 0%, 100%);
+            display: inline-block;
+            font-size: 22px;
+            line-height: 22px;
+            margin: 16px 16px 16px 20px;
+            padding: 14px 34px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        button[disabled] {
+            cursor: default;
+            background: #c0c7cf;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        #password {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+            display: block;
+            width: 100%;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 85px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 2px dashed #c0c7cf;
+            border-radius: 6px;
+            resize: none;
+            overflow: hidden;
+        }
+
+        @media (max-width: 290px) {
+            .btn {
+                font-size: 1rem;
+                margin: 16px 0px 0px 0px;
+                padding: 10px 15px;
+            }
+
+            #password {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 00px) {
+            .btn {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Password Generator</h1>
+        </header>
+        <div class="card">
+            <div class="card-header">
+                <h2>Generate a Password</h2>
+            </div>
+            <div>
+                Пусть на экран выведены следующие три слова: «starved», «carp», «shuck».
+                <br>
+                <br>
+                <div>
+                    <label for="word1">word1</label>
+                    <input name="word1" id='word1' value=''>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="word2">word2
+                    </label>
+                    <input name="word2" id='word2' value=''>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="word3">word3</label>
+                    <input name="word3" id='word3' value=''>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="passwordUser">Сравнить пароль</label>
+                    <input type="password" name="passwordUser" id='passwordUser' value=''>
+                    <button name="button" id='button'
+                        style="width: 70px; height: 15px;background-color: rgb(136, 40, 40);color: white;"
+                        onclick="check()">Сравнить</button>
+                </div>
+                <textarea readonly id="checkPassword" placeholder="Ответ"
+                            aria-label="Generated Password"></textarea>
+                <br>
+                <br>
+                <div>
+                    <div class="card-body">
+                        <textarea readonly id="password" placeholder="Your Secure Password"
+                            aria-label="Generated Password"></textarea>
+                    </div>
+                    <div class="card-footer">
+                        <button id="generate" class="btn">Generate Password</button>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
+<script>
+    let word1, word2, word3;
+
+
+
+    let generateBtn = document.querySelector("#generate");
+    generateBtn.addEventListener("click", generatePassword);
+
+    let randomPassword = ""
+    let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+
+    function generatePassword() {
+
+        word1 = document.getElementById('word1').value.split('');
+        word2 = document.getElementById('word2').value.split('');
+        word3 = document.getElementById('word3').value.split('');
+
+        if (word1.length === 0 && word2.length === 0 && word3.length === 0) {
+            alert('Заполните все поля');
+            return;
+        } else {
+            randomPassword = ""
+
+            let indexPass1 = lowerCase.indexOf(word1[0]) + 1;
+            if (indexPass1 === 26) indexPass1 = 0;
+            randomPassword += lowerCase[indexPass1] + lowerCase[indexPass1]
+
+            if (word2.length < 3) {
+                alert('Второе слово должно состоять как минимум из 3 букв')
+            } else {
+                let indexPass2 = lowerCase.indexOf(word2[3]) - 1;
+                if (indexPass2 === -1) indexPass2 = 25;
+                randomPassword += lowerCase[indexPass2]
+
+                let indexPass3;
+                if (word3.length < 4) {
+                    alert('Третье слово должно состоять как минимум из 4 символов')
+                } else {
+                    if (word3.length % 2 === 0) {
+                        indexPass3 = lowerCase.indexOf(word3[word3.length / 2 - 1]) - 1;
+                        if (indexPass3 === -1) indexPass3 = 25;
+                    } else {
+                        indexPass3 = lowerCase.indexOf(word3[4]) + 1
+                        if (indexPass3 === 26) indexPass3 = 0;
+                    }
+                    randomPassword += lowerCase[indexPass3]
+
+                    let indexPass4;
+                    indexPass4 = word1.length + word2.length
+                    if (indexPass4 >= 26) indexPass4 = indexPass4 % 26;
+                    randomPassword += lowerCase[indexPass4]
+
+                    document.getElementById("password").value = randomPassword;
+                }
+            }
+        }
+    }
+
+    function check() {
+        let passwordUser = document.getElementById('passwordUser').value;
+        let machine_passord = document.getElementById('password').value;
+        if (machine_passord.length === 0) {
+            alert('Для начала сгенерируйте пароль и только потом сравните')
+        } else {
+            let answer = document.getElementById('checkPassword')
+            if (passwordUser === machine_passord) {
+                answer.value = 'Пароль верный'
+            } else {
+                answer.value = 'Пароли неверный'
+            }
+        }
+    }
+</script>
