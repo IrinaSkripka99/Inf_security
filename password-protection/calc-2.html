@@ -158,18 +158,19 @@
                 <br>
                 <div>
                     <label for="P">P:</label>
-                    <p name="P" id='P'>0,00001</p>
+                    <input name="P" id='P' value="0.00001"/>
                 </div>
                 <br>
                 <br>
                 <div>
                     <label for="V">V:</label>
-                    <p name="V" id='V' >20 паролей в минуту</p>                </div>
+                    <input name="V" id='V' value="20"/>
+                </div>
                 <br>
                 <br>
                 <div>
                     <label for="T">T:</label>
-                    <p name="T" id='T' >6 дней</p>
+                    <input name="T" id='T' value="6"/>
                 </div>
                 <br>
                 <br>
@@ -200,7 +201,13 @@
 
     let characters = upperCase + lowerCase;
 
+    p = document.getElementById('P').value;
+    v = document.getElementById('V').value;
+    t = document.getElementById('T').value;
+
+console.log
     s = v * t / p;
+    console.log(s)
     l = 0;
 
     while (Math.pow(a, l) < s) {
@@ -212,7 +219,7 @@
     }
 
     function generatePassword() {
-        l = getRandomInt(l, 59)
+        randomPassword=''
         for (let i = 0; i < l; i++) {
             randomPassword = randomPassword + characters[Math.floor(Math.random() * characters.length)];
         }

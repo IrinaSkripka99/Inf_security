@@ -180,11 +180,10 @@
                     <label for="passwordUser">Сравнить пароль</label>
                     <input type="password" name="passwordUser" id='passwordUser' value=''>
                     <button name="button" id='button'
-                        style="width: 70px; height: 15px;background-color: rgb(136, 40, 40);color: white;"
+                        style="width: 70px; height: 30px;border-radius:20px;background-color: rgb(136, 40, 40);color: white;"
                         onclick="check()">Сравнить</button>
                 </div>
-                <textarea readonly id="checkPassword" placeholder="Ответ"
-                            aria-label="Generated Password"></textarea>
+                <textarea readonly id="checkPassword" placeholder="Ответ" aria-label="Generated Password"></textarea>
                 <br>
                 <br>
                 <div>
@@ -268,7 +267,7 @@
             if (passwordUser === machine_passord) {
                 answer.value = 'Пароль верный'
             } else {
-                answer.value = 'Пароли неверный'
+                answer.value = 'Пароль неверный'
             }
         }
     }
