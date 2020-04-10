@@ -1,0 +1,165 @@
+html
+  { height: 100%;}
+
+*
+  { margin: 0;
+    padding: 0;
+  }
+
+body
+  { font: normal 100em;
+    color: gray;
+    font-family: Verdana, sans-serif;
+    background: #f0f0f0;
+  }
+
+p
+  { 
+    line-height: 1.2em;
+    font-size: 107%;
+    
+  }
+
+img
+  { border: 0;
+    padding-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+
+h1
+  { font-size: 32px ;
+    font-family: Verdana, sans-serif;
+    color: #ffce00;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: 0 0 10px 0;
+    padding: 5px 0 5px 0;
+  }
+
+h2
+  { font: normal 170%;
+    font-family: Verdana, sans-serif;
+    color: #1a2930;  
+    margin: 0;
+    padding: 0 0 8px 0;
+  }
+
+a, a:hover
+  { outline: none;
+    text-decoration: none;
+    color: #ffce00;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+  }
+
+a:hover
+  { text-decoration: underline;}
+
+ul
+  { margin: 2px 0 10px 17px;}
+
+ul li
+  { list-style-type: circle;
+    margin: 0 0 0 0; 
+    padding: 0 0 4px 5px;
+  }
+
+#main, #menubar, #site_content, #footer
+  { margin-left: auto; 
+    margin-right: auto;
+  }
+
+#main
+  { width: 100%px;
+    margin: 20px auto;
+  }
+
+#header
+	{ float:left;
+    margin-bottom: 0.5em;
+    line-height: 1.5em;
+	  margin: 0.5em 0 0 5%;
+    padding: 0 0 0.5em 0;
+	  text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+#site_content
+  { width: 90%;
+    overflow-x: hidden;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    background: lightpink;
+    
+    border-radius: 5px;
+    border: 1px solid #ffc30d;
+    box-shadow: 5px 10px 18px #1a2930;
+  } 
+
+#sidebar_container
+  { float: right;
+    width: 25%;
+    margin: 25px 25px;
+  }
+
+.sidebar
+  { float: right;
+    width: 100%;
+    margin: 50 20px 27px 0;
+    background: #ffc30d;
+    font-family: Verdana, sans-serif;
+    font-size: 0.8em;
+    color: #000000;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 0 15px 15px 15px;
+  }
+
+.content
+  { text-align: left;
+    width: 60%;
+    height: 80%;
+    text-align: center;
+    justify-content: center;
+    padding: 100px 25px 25px 25px;
+    margin: 0;
+  }
+
+#content ul
+  { margin: 2px 0 22px 0px;}
+
+
+.form_settings input, .form_settings textarea
+  { width: 80%;
+    height:35px;
+    font: 100%;
+    border: 0;
+    font: sans-serif;
+    display: block;
+    margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border-radius: 5px;
+    color: #000000;
+  }
+  
+ .form_settings .button
+  { display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 1.0em;
+    width: auto;
+    border-radius: 5px;
+    cursor: pointer; 
+    color: #000000;
+    padding: 5px 15px;
+    background: #ffce00;
+    border: 1px solid #1a2930;
+    box-shadow: 5px 10px 18px #1a2930;
+  }
