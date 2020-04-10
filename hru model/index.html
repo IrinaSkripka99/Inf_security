@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #title {
+        font-size: '60px';
+        text-align: center;
+
+    }
+
+    #help {
+        font-size: small;
+    }
+
+    #userContainer {
+        margin-top: 40px;
+    }
+
+    #userId {
+        background-color: #4CAF50;
+        border-radius: 20px;
+        width: 40px;
+        height: 20px;
+        color: white;
+        margin-left: 20px;
+    }
+
+    #welcome {
+        color: grey;
+        margin-top: 20px;
+    }
+
+    #roots {
+        color: grey;
+        margin-top: 20px;
+    }
+
+    #operations {
+        color: grey;
+        margin-top: 20px;
+    }
+
+    #todo {
+        color: grey;
+        margin-top: 20px;
+    }
+
+    #chooseSubject {
+        color: grey;
+        margin-top: 20px;
+    }
+
+    #chooseSub {
+        margin-top: 20px;
+    }
+
+    #listOfOperations {
+        color: black;
+    }
+
+    #listOfRoots {
+        color: black;
+    }
+
+    #listOfToDo {
+        margin-top: 20px;
+    }
+
+    #answer {
+        margin-top: 20px;
+        font-size: larger;
+    }
+
+    #btn {
+        background-color: #4CAF50;
+        border-radius: 20px;
+        height: 20px;
+        color: white;
+        margin-left: 20px;
+    }
+</style>
+
+<body>
+    <h1 id='title'>HRU model</h1>
+    <table id="customers">
+        <tr id="1">
+            <th>Subject/Object</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+        </tr>
+        <tr id="2">
+            <th>1</th>
+            <td name='1'>r1,r2</td>
+            <td name='2'>r3,r7</td>
+            <td name='3'>r2</td>
+            <td name='4'>r9</td>
+            <td name='5'>r2,r1,r5</td>
+        </tr>
+        <tr id="3">
+            <th>2</th>
+            <td name='1'>r1</td>
+            <td name='2'>r3</td>
+            <td name='3'></td>
+            <td name='4'>r9</td>
+            <td name='5'>r1,r5</td>
+        </tr>
+        <tr id="4">
+            <th>3</th>
+            <td name='1'>r4</td>
+            <td name='2'>r3</td>
+            <td name='3'></td>
+            <td name='4'></td>
+            <td name='5'></td>
+        </tr>
+        <tr id="5">
+            <th>4</th>
+            <td name='1'>r4</td>
+            <td name='2'>r3</td>
+            <td name='3'></td>
+            <td name='4'>r2</td>
+            <td name='5'></td>
+        </tr>
+        <tr id="6">
+            <th>5</th>
+            <td name='1'></td>
+            <td name='2'>r3</td>
+            <td name='3'></td>
+            <td name='4'>r9</td>
+            <td name='5'>r2,r4,r5</td>
+        </tr>
+        <tr id="7">
+            <th>6</th>
+            <td name='1'></td>
+            <td name='2'>r2</td>
+            <td name='3'></td>
+            <td name='4'>r9</td>
+            <td name='5'>r2,r1,r5</td>
+        </tr>
+        <tr id="8">
+            <th>7</th>
+            <td name='1'>r4</td>
+            <td name='2'>r3</td>
+            <td name='3'></td>
+            <td name='4'>r9</td>
+            <td name='5'>r2,r1,r5</td>
+        </tr>
+        <tr id="1">
+            <th>8</th>
+            <td name='1'>r4</td>
+            <td name='2'></td>
+            <td name='3'></td>
+            <td name='4'>r9</td>
+            <td name='5'>r2,r1,r5</td>
+        </tr>
+    </table>
+    <div id='help'>
+        <p>*r1 , r2 , r3 , r4 , r5 , r6 , r7 , r8 , r9 - права доступа</p>
+    </div>
+    <div id='userContainer'>
+        <label for="userId">Выберете идентификатор субъекта :</label>
+        <button id="userId" onclick="chooseUser(1)">1</button>
+        <button id="userId" onclick="chooseUser(2)">2</button>
+        <button id="userId" onclick="chooseUser(3)">3</button>
+        <button id="userId" onclick="chooseUser(4)">4</button>
+        <button id="userId" onclick="chooseUser(5)">5</button>
+        <button id="userId" onclick="chooseUser(6)">6</button>
+        <button id="userId" onclick="chooseUser(7)">7</button>
+        <button id="userId" onclick="chooseUser(8)">8</button>
+    </div>
+    <div id='welcome'>
+    </div>
+    <div id='operations'>
+    </div>
+    <div id='roots'>
+    </div>
+    <div id="todo"></div>
+
+    <div id='chooseSubject'></div>
+    <div id="answer"></div>
+    <script>
+
+        function chooseUser(id) {
+            document.getElementById('welcome').innerHTML = '';
+            document.getElementById('answer').innerHTML = ''
+            document.getElementById('operations').innerHTML = '';
+            document.getElementById('roots').innerHTML = '';
+            document.getElementById('todo').innerHTML = '';
+            document.getElementById('chooseSubject').innerHTML = '';
+            document.getElementById('welcome').innerHTML += 'Идентификация прошла успешно, добро пожаловать в систему Subject ' + id
+
+            document.getElementById('operations').innerHTML = '';
+            document.getElementById('operations').innerHTML += 'Вы можете совершить следующие операции :';
+
+            if (document.getElementById('listOfOperations')) {
+                document.getElementById('listOfOperations').remove();
+            }
+            let listsUl = document.createElement('ul');
+            listsUl.id = "listOfOperations";
+            listsUl.innerHTML = '';
+            if (id == 1) {
+                listsUl.innerHTML = '<li>Добавить право</li><li>Удалить право</li><li>Удалить субъект</li><li>Создать субъект</li><li>Создать объект</li><li>Удалить объект</li>'
+            } else if (id == 2) {
+                listsUl.innerHTML = '<li>Создать объект</li><li>Создать субъект</li>';
+            } else if (id == 3) {
+                listsUl.innerHTML = '<li>Удалить объект</li><li>Удалить субъект</li>';
+            } else if (id == 4) {
+                listsUl.innerHTML = '<li>Добавить право</li><li>Удалить право</li>'
+            } else if (id == 5) {
+                listsUl.innerHTML = '<li>Создать субъект</li><li>Удалить субъект</li>'
+            } else if (id == 6) {
+                listsUl.innerHTML = '<li>Создать объект</li><li>Удалить объект</li>'
+            } else if (id == 7) {
+                listsUl.innerHTML = '<li>Добавить право</li><li>Удалить право</li><li>Создать субъект</li>'
+            } else if (id == 8) {
+                listsUl.innerHTML = '<li>Удалить субъект</li><li>Создать объект</li><li>Удалить объект</li>'
+            }
+            document.getElementById('operations').append(listsUl);
+
+            if (document.getElementById('listOfRoots')) {
+                document.getElementById('listOfRoots').remove();
+            }
+            let div = document.createElement('ul');
+            div.id = "listOfRoots";
+            document.getElementById('roots').innerHTML = '';
+            document.getElementById('roots').innerHTML += 'Перечень ваших прав :';
+            const roots = document.getElementsByName(id);
+            roots.forEach((element, key) => {
+                if (element.innerText == '') {
+                    div.innerHTML += `<li>Объект ${key + 1} прав нет</li>`
+                } else {
+                    div.innerHTML += `<li>Объект ${key + 1} права ${element.innerText}</li>`
+                }
+            });
+            document.getElementById('roots').append(div);
+            startWork();
+        }
+
+        function startWork() {
+            document.getElementById('todo').innerHTML = '';
+            document.getElementById('todo').innerHTML += 'Какую операцию вы хотите совершить :';
+            if (document.getElementById('listOfToDo')) {
+                document.getElementById('listOfToDo').remove();
+            }
+            let todo = document.createElement('div');
+            todo.id = "listOfToDo";
+            todo.innerHTML = '<button id=btn onclick=doThis(1)>Добавить право</button><button onclick=doThis(2) id=btn>Удалить право</button>' +
+                '<button onclick=doThis(3) id=btn>Создать субъект</button><button onclick=doThis(4) id=btn>Удалить субъект</button>' +
+                '<button onclick=doThis(5) id=btn>Создать объект</button><button onclick=doThis(6) id=btn>Удалить объект</button>'
+            document.getElementById('todo').append(todo);
+        }
+
+        function choose(id) {
+            document.getElementById('chooseSubject').innerHTML = '';
+            document.getElementById('chooseSubject').innerHTML += 'Над каким объектом ? ';
+            if (document.getElementById('chooseSub')) {
+                document.getElementById('chooseSub').remove();
+            }
+            let chooseSub = document.createElement('div');
+            chooseSub.id = "chooseSub";
+            chooseSub.innerHTML = `<button id=btn onclick=showOk()>Subject 1</button><button onclick=showOk() id=btn>Subject 2</button>` +
+                `<button onclick=showOk() id=btn>Subject 3</button><button onclick=showOk() id=btn>Subject 4</button>` +
+                `<button onclick=showOk() id=btn>Subject 5</button>`
+
+            document.getElementById('chooseSubject').append(chooseSub);
+        }
+
+        function showOk() {
+            document.getElementById('answer').innerHTML = ''
+            document.getElementById('answer').innerHTML += `<p style='color: #4CAF50'>Действие выполнено</p>`
+        }
+
+        function doThis(todoId) {
+            document.getElementById('answer').innerHTML = ''
+            const canDo = document.getElementById('listOfOperations').innerText;
+            console.log(canDo)
+            if (todoId == 1) {
+                if (canDo.indexOf('Добавить право') !== -1) {
+                    choose(todoId)
+                } else {
+                    document.getElementById('answer').innerHTML += `<p style='color: red'>Вы не можете это сделать</p>`
+                }
+            } else if (todoId == 2) {
+
+                if (canDo.indexOf('Удалить право') !== -1) {
+                    choose(todoId)
+                }
+                else {
+                    document.getElementById('answer').innerHTML += `<p style='color: red'>Вы не можете это сделать</p>`
+                }
+            } else if (todoId == 3) {
+
+                if (canDo.indexOf('Создать субъект') !== -1) {
+                    document.getElementById('answer').innerHTML += `<p style='color: #4CAF50'>Субъект создан</p>`
+                } else {
+                    document.getElementById('answer').innerHTML += `<p style='color: red'>Вы не можете это сделать</p>`
+                }
+            } else if (todoId == 4) {
+                if (canDo.indexOf('Удалить субъект') !== -1) {
+                    document.getElementById('answer').innerHTML += `<p style='color: #4CAF50'>Субъект удален</p>`
+                } else {
+                    document.getElementById('answer').innerHTML += `<p 'style='color: red'>Вы не можете это сделать</p>`
+                }
+            } else if (todoId == 5) {
+                if (canDo.indexOf('Создать объект') !== -1) {
+                    document.getElementById('answer').innerHTML += `<p style='color: #4CAF50'>Объект создан</p>`
+                } else {
+                    document.getElementById('answer').innerHTML += `<p 'style='color: red'>Вы не можете это сделать</p>`
+                }
+            } else if (todoId == 6) {
+                if (canDo.indexOf('Удалить объект') !== -1) {
+                    document.getElementById('answer').innerHTML += `<p style='color: #4CAF50'>Объект удален</p>`
+                } else {
+                    document.getElementById('answer').innerHTML += `<p 'style='color: red'>Вы не можете это сделать</p>`
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
