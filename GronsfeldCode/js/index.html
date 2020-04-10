@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="style.css" type="text/css" />
+   <script type="text/javascript" src="cipherGronsfeld.js">    </script>
+   <title>Cryptography</title>
+</head>
+
+<body>
+   <div id="main">
+      <div id="header">
+         <h1>Gronsfeld</h1>
+      </div>
+      <div id="site_content">
+         <div id="sidebar_container">
+            <div class="sidebar">
+               <div class="form_settings">
+                  <p style="padding: 10px">
+                     <textarea id="textGr" style="width:100%;height:100px"
+                        placeholder="Enter your text for encryption"></textarea>
+                     <textarea id="keyGr" style="width:30%;height:20px" placeholder="key"></textarea>
+                     <p style="padding: 10px">
+                        <input class="button" type="button" id="buttonGr" value="Encrypt" /> </p>
+                     <p style="padding: 10px">
+                        <textarea id="textGr2" style="width:100%;height:100px"></textarea> </p>
+               </div>
+            </div>
+         </div>
+         <div class="content">
+            <p> Шифр Гронсфельда был создан Хосе де Бронкхорстом (графом Гронсфельдом) около 1744 года. Как бельгийский
+               дипломат, безопасность сообщений при обмене была для него очень важной.
+                Шифр Гронсфельда представляет собой разновидность шифра Vigenere, в котором вместо ключевого слова
+               используется номер ключа, например 14965.
+                Для шифрования с использованием этого шифра буква текста берется одна за другой и сдвигается на
+               соответствующий номер в ключе. Ключ повторяется, чтобы соответствовать длине сообщения. Например:</p>
+            <p> Текст : NAT</p>
+            <p> Ключ : 123 </p>
+            <p> Зашифрованный текст : OCW </p>
+            <p>Этот код не предлагает никакой защиты. Однако сломать сложнее Шифра Цезаря.</p>
+         </div>
+      </div>
+</body>
+
+</html>
